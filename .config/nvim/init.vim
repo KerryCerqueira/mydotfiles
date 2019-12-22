@@ -37,6 +37,8 @@ call plug#end()
 
 " Set tab width
 set shiftwidth=3
+" Set line numbers
+set number
 " Enable powerline font symbols for airline and set theme
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized_flood'
