@@ -93,13 +93,16 @@ else
 	export EDITOR='/usr/bin/nvim'
 	export VISUAL='/usr/bin/nvim'
 	export BROWSER='/usr/bin/firefox'
-	export DOT_FILES_DIR=$HOME'/.dotfiles'
 	alias vim='nvim'
 	alias vi='nvim'
 fi
 
 # Dot file version control command
+export DOT_FILES_DIR=$HOME'/.dotfiles'
 alias config='/usr/bin/git --git-dir=$DOT_FILES_DIR --work-tree=$HOME' 
+
+# Small change to make ranger exit into last explored directory
+alias ranger='source ranger'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
