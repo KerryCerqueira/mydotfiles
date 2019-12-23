@@ -104,6 +104,9 @@ alias config='/usr/bin/git --git-dir=$DOT_FILES_DIR --work-tree=$HOME'
 # Small change to make ranger exit into last explored directory
 alias ranger='source ranger'
 
+# pkgfile command not found handler
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
