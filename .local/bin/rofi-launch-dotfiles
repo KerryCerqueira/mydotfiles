@@ -1,0 +1,14 @@
+#!/bin/bash
+
+WORKINGDIR="$HOME/.config/rofi/"
+MAP="$WORKINGDIR/dotfilelist.csv"
+DOTFILE="$(cat $MAP \
+   | grep "^[^,]*,[^,]*,1$" \
+   | cut -d ',' -f 1 \
+   | rofi -dmenu -p "dotfile " \
+   | head -n 1 \
+   | xargs -i --no-run-if-empty grep "^{},[^,]*,1" "$MAP" \
+   | cut -d ',' -f 2 \
+   | xargs -n 1 echo)"
+alacritty -e nvim "$DOTFILE"
+exit 0

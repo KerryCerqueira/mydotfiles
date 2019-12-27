@@ -1,0 +1,10 @@
+#!/bin/bash
+
+NEW_LIST=$(/usr/bin/git --git-dir=$DOT_FILES_DIR --work-tree=$HOME ls-tree -r --full-name --name-only master $HOME | xargs -I{} echo "$HOME/{}")
+OLD_LIST=$(cat $HOME/.config/rofi/dotfilelist.csv | cut -d ',' -f 3)
+
+for dotfile in $NEW_LIST; do
+   if ! (echo $OLD_LIST | grep -w -i -q "$dotfile"); then
+      echo "Unknown ($dotfile),$dotfile,1" >> $HOME/.config/rofi/dotfilelist.csv
+   fi
+done

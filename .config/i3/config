@@ -34,6 +34,7 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec rofi -show drun -show-icons -modi drun#run#window
+bindsym $mod+Ctrl+d exec rofi-launch-dotfiles
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 

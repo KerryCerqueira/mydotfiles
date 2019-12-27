@@ -1,0 +1,7 @@
+Alacritty,1,/home/kerry/.config/alacritty/alacritty.yml
+Compton,1,/home/kerry/.config/compton.conf
+i3,1,/home/kerry/.config/i3/config
+Neovim,1,/home/kerry/.config/nvim/init.vim
+Ranger,1,/home/kerry/.config/ranger/rc.conf
+dotfile repo .gitignore,0,/home/kerry/.gitconfig
+Zsh,1,/home/kerry/.zshrc
