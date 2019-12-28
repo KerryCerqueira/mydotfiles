@@ -1,7 +1,7 @@
 #!/bin/bash
 
-NEW_LIST=$(/usr/bin/git --git-dir=$DOT_FILES_DIR --work-tree=$HOME ls-tree -r --full-name --name-only master $HOME | xargs -I{} echo "$HOME/{}")
-OLD_LIST=$(cat $HOME/.config/rofi/dotfilelist.csv | cut -d ',' -f 3)
+NEW_LIST=$(/usr/bin/git --git-dir=$DOT_FILES_DIR --work-tree=$HOME ls-tree -r --full-name --name-only HEAD $HOME | xargs -I{} echo "$HOME/{}")
+OLD_LIST=$(cat $HOME/.config/rofi/dotfilelist.csv | cut -d ',' -f 2)
 
 for dotfile in $NEW_LIST; do
    if ! (echo $OLD_LIST | grep -w -i -q "$dotfile"); then

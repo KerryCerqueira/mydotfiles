@@ -1,7 +1,14 @@
-Alacritty,1,/home/kerry/.config/alacritty/alacritty.yml
-Compton,1,/home/kerry/.config/compton.conf
-i3,1,/home/kerry/.config/i3/config
-Neovim,1,/home/kerry/.config/nvim/init.vim
-Ranger,1,/home/kerry/.config/ranger/rc.conf
-dotfile repo .gitignore,0,/home/kerry/.gitconfig
-Zsh,1,/home/kerry/.zshrc
+Alacritty,/home/kerry/.config/alacritty/alacritty.yml,1
+Compton,/home/kerry/.config/compton.conf,1
+i3,/home/kerry/.config/i3/config,1
+Neovim,/home/kerry/.config/nvim/init.vim,1
+Ranger,/home/kerry/.config/ranger/rc.conf,1
+Base .gitconfig,/home/kerry/.gitconfig,1
+Zsh,/home/kerry/.zshrc,1
+Local environment install script,/home/kerry/.config/mydotfiles/install.sh,0
+Rofi dotfile list,/home/kerry/.config/rofi/dotfilelist.csv,1
+XDG user dirs,/home/kerry/.config/user-dirs.dirs,0
+Zathura,/home/kerry/.config/zathura/zathurarc,1
+dotfile repo .gitignore,/home/kerry/.gitignore,0
+rofi-launch-dotfiles,/home/kerry/.local/bin/rofi-launch-dotfiles,0
+rofi-update-dotfiles,/home/kerry/.local/bin/rofi-update-dotfiles,0
