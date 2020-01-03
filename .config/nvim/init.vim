@@ -42,3 +42,5 @@ set number
 " Enable powerline font symbols for airline and set theme
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized_flood'
+
+let g:vimtex_compiler_progname = 'nvr'
