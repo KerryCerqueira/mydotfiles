@@ -107,6 +107,9 @@ alias ranger='source ranger'
 # pkgfile command not found handler
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
+# set VI mode
+bindkey -v
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
