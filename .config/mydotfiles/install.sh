@@ -23,25 +23,33 @@ function cleanup {
 trap cleanup EXIT
 
 # implementation of script starts here
+
+#Install pulseaudio
+install_pulse && rm -rf "$HOME"/.config/pulse
+pulseaudio --kill && pulseaudio --start
+
 #Install pacman installable packages
-sudo pacman -Syu neovim alacritty ranger biber steam xournalpp firefox zsh rofi texlive-most zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps
+sudo pacman -Syu neovim python-pynvim alacritty ranger biber steam xournalpp firefox zsh rofi texlive-most zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps pkgfile
+
+# install neovim-remote for vimtex compiler callbacks
+git clone https://aur.archlinux.org/neovim-remote.git "$WORK_DIR"/neovim-remote
+cd "$WORK_DIR"/neovim_remote && makepkg -si
 
 # Dev icons for Ranger
-git clone https://github.com/alexanderjeurissen/ranger_devicons.git "$WORK_DIR"/rangerdevicons
-cd "$WORK_DIR"/rangerdevicons; makepkg -is
+git clone https://github.com/alexanderjeurissen/ranger_devicons.git "$HOME"/.config/ranger/plugins/ranger_devicons
 
 # Miniconda
 mkdir "$WORK_DIR"/miniconda && curl -o "$WORK_DIR"/miniconda/install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-cd "$WORK_DIR"/miniconda; chmod u=rxw install.sh; ./install.sh -b -p "$HOME"/conda; cd ../
+cd "$WORK_DIR"/miniconda; chmod u=rxw install.sh; ./install.sh -b -p "$HOME"/conda;
 
 # Create conda environments
 source "$HOME"/conda/bin/activate; conda init
-conda update conda; conda install -y jupyter ipykernel jupyterlab; conda create -y -n sage sage python=2.7; conda create -y -n anaconda anaconda
+conda update -y conda; conda install -y jupyter ipykernel jupyterlab; conda create -y -n sage sage python=2.7; conda create -y -n anaconda anaconda
 
 # R Studio and R jupyter kernel
 git clone --depth=1 https://aur.archlinux.org/rstudio-desktop-bin.git "$WORK_DIR"/rstudio
-cd "$WORK_DIR"/rstudio; makepkg -is 
-R -e "install.packages('IRkernel'); IRkernel::installspec(name='ir3.x', displayname='R 3.x kernel')"
+cd "$WORK_DIR"/rstudio; makepkg -is --no-confirm
+R -e "install.packages('IRkernel', lib='$HOME/R/templib', repos='https://cloud.r-project.org/'); library('IRkernel', lib.loc='$HOME/R/templib'); installspec(name='irkernel', displayname='R kernel')"
 
 # Sourcecode pro font
 git clone --depth=1 https://aur.archlinux.org/nerd-fonts-source-code-pro.git "$WORK_DIR"/sourcecodepro/
@@ -67,4 +75,7 @@ cd $HOME
 /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
 
 # install nvim plugins
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +qall
+
+exit 1
