@@ -6,58 +6,61 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #222D31
-XTerm*foreground:        #d8d8d8
+XTerm*background:        #002b36
+XTerm*foreground:        #657b83
 XTerm*pointerColor:      #1ABB9B
 XTerm*faceName:          Fixed
 XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-*background:                      #222D31
-*foreground:                      #d8d8d8
-*fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #1ABB9B
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
+*background: #002b36
+*foreground: #657b83
+!!*fading: 40
+*fadeColor: #002b36
+*cursorColor: #93a1a1
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
 
 !! black dark/light
-*color0:                          #222D31
-*color8:                          #585858
+*color0: #073642
+*color8: #002b36
 
 !! red dark/light
-*color1:                          #ab4642
-*color9:                          #ab4642
+*color1: #dc322f
+*color9: #cb4b16
 
 !! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
+*color2: #859900
+*color10: #586e75
 
 !! yellow dark/light
-*color3:                          #f7ca88
-*color11:                         #f7ca88
+*color3: #b58900
+*color11: #657b83
 
 !! blue dark/light
-*color4:                          #7cafc2
-*color12:                         #7cafc2
+*color4: #268bd2
+*color12: #839496
 
 !! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
+*color5: #d33682
+*color13: #6c71c4
 
 !! cyan dark/light
-*color6:                          #1ABB9B
-*color14:                         #1ABB9B
+*color6: #2aa198
+*color14: #93a1a1
 
 !! white dark/light
-*color7:                          #d8d8d8
-*color15:                         #f8f8f8
+*color7: #eee8d5
+*color15: #fdf6e3
 
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
 
-URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
+URxvt.font: xft:SauceCodePro\ Nerd\ Font\ Mono:style=Regular:pixelsize=15
+URxvt.bold.font: xft:SauceCodePro\ Nerd\ Font\ Mono:style=Bold:pixelsize=15
+URxvt.italic.font: xft:SauceCodePro\ Nerd\ Font\ Mono:style=Italic:pixelsize=15
+URxvt.boldItalic.font: xft:SauceCodePro\ Nerd\ Font\ Mono:style=Bold Italic:pixelsize=15
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
@@ -65,12 +68,9 @@ URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 !! terminus names see end of file!
 
 URxvt.depth:                      32
-URxvt.background:                 [100]#222D31
 URxvt*scrollBar:                  false
-URxvt*mouseWheelScrollPage:       false
+URxvt*mouseWheelScrollPage:       true
 URxvt*cursorBlink:                true
-URxvt*background:                 black
-URxvt*foreground:                 grey
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
