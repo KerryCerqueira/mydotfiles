@@ -12,3 +12,5 @@ Zathura,/home/kerry/.config/zathura/zathurarc,1
 dotfile repo .gitignore,/home/kerry/.gitignore,0
 rofi-launch-dotfiles,/home/kerry/.local/bin/rofi-launch-dotfiles,0
 rofi-update-dotfiles,/home/kerry/.local/bin/rofi-update-dotfiles,0
+Xresources,/home/kerry/.Xresources,1
+Unknown (/home/kerry/.config/localenvsetup/localenv-install.sh),/home/kerry/.config/localenvsetup/localenv-install.sh,1
