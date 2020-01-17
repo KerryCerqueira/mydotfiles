@@ -25,8 +25,8 @@ trap cleanup EXIT
 # implementation of script starts here
 
 #Install pulseaudio
-install_pulse && rm -rf "$HOME"/.config/pulse
-pulseaudio --start
+#install_pulse && rm -rf "$HOME"/.config/pulse
+#pulseaudio --start
 
 #Install pacman installable packages
 sudo pacman -Syu neovim python-pynvim alacritty ranger biber steam xournalpp firefox zsh rofi texlive-most zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps pkgfile
@@ -52,9 +52,12 @@ git clone --depth=1 https://aur.archlinux.org/rstudio-desktop-bin.git "$WORK_DIR
 cd "$WORK_DIR"/rstudio; makepkg -is --noconfirm
 R -e "install.packages('IRkernel', lib='$HOME/R/templib', repos='https://cloud.r-project.org/'); library('IRkernel', lib.loc='$HOME/R/templib'); installspec(name='irkernel', displayname='R kernel')"
 
+# Nerd Fonts
 # Sourcecode pro font
-git clone --depth=1 https://aur.archlinux.org/nerd-fonts-source-code-pro.git "$WORK_DIR"/sourcecodepro/
-cd "$WORK_DIR"/sourcecodepro; makepkg -is
+# git clone --depth=1 https://aur.archlinux.org/nerd-fonts-source-code-pro.git "$WORK_DIR"/sourcecodepro/
+# cd "$WORK_DIR"/sourcecodepro; makepkg -is
+git https://aur.archlinux.org/nerd-fonts-complete.git "$WORK_DIR"/nerdfonts
+cd "$WORK_DIR"/nerdfonts; makepkg -si
 
 # oh-my-zsh and some plugins
 cd "$WORK_DIR"
