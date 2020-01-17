@@ -56,7 +56,7 @@ R -e "install.packages('IRkernel', lib='$HOME/R/templib', repos='https://cloud.r
 # Sourcecode pro font
 # git clone --depth=1 https://aur.archlinux.org/nerd-fonts-source-code-pro.git "$WORK_DIR"/sourcecodepro/
 # cd "$WORK_DIR"/sourcecodepro; makepkg -is
-git https://aur.archlinux.org/nerd-fonts-complete.git "$WORK_DIR"/nerdfonts
+git clone https://aur.archlinux.org/nerd-fonts-complete.git "$WORK_DIR"/nerdfonts
 cd "$WORK_DIR"/nerdfonts; makepkg -si
 
 # oh-my-zsh and some plugins
@@ -68,7 +68,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME"/.oh-my-zsh/custom/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME"/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions "$HOME"/.oh-my-zsh/custom/plugins/zsh-completions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME"/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME"/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # install my dot files
 touch "$HOME"/.gitignore && echo ".dotfiles" >> "$HOME"/.gitignore
