@@ -34,7 +34,10 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec rofi -show drun -show-icons -modi drun#run#window
+# start dotfile editor
 bindsym $mod+Ctrl+d exec rofi-launch-dotfiles
+# start rofi calculator
+bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -42,11 +45,15 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+exec --no-startup-id pasystray
+# bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # exec --no-startup-id pulseaudio
 # exec --no-startup-id pa-applet
-# bindsym $mod+Ctrl+m exec pavucontrol
+bindsym $mod+Ctrl+m exec pavucontrol
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 ################################################################################################
 
@@ -57,7 +64,8 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 # Start Applications
 # bindsym $mod+Ctrl+b exec alacritty -e 'bmenu'
 bindsym $mod+F2 exec firefox
-# bindsym $mod+F3 exec pcmanfm
+bindsym $mod+Shift+F2 exec mailspring
+bindsym $mod+Ctrl+F3 exec pcmanfm
 bindsym $mod+F3 exec alacritty -e ranger
 bindsym $mod+Shift+F3 exec alacritty -e sudo ranger 
 bindsym $mod+F5 exec vlc
@@ -102,9 +110,9 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+c split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
-bindsym $mod+q split toggle
+# bindsym $mod+c split h;exec notify-send 'tile horizontally'
+# bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+q split toggle;exec notify-sent 'tile orientation toggled'
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -112,10 +120,10 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle split;exec notify-send 'toggle stacking/tabbed'
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle;exec notify-send 'toggle floating/tiling'
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -141,14 +149,15 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 7
-set $ws8 8
+#
+set $ws1 1:① 
+set $ws2 2:② 
+set $ws3 3:③ 
+set $ws4 4:④ 
+set $ws5 5:⑤
+set $ws6 6:⑥
+set $ws7 7:⑦ 
+set $ws8 8:⑧ 
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -181,10 +190,11 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
+assign [class="Mailspring"] $ws4
+assign [class="firefox"] $ws3
+assign [class="vlc"] $ws7
+assign [class="Steam"] $ws8
+assign [class="Zathura"] $ws2
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -213,6 +223,8 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [title="Steam - News*"] floating enable
+for_window [title="blueman-manager"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
